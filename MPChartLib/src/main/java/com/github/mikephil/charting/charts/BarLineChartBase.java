@@ -14,6 +14,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 
+import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis.XAxisPosition;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.components.YAxis.AxisDependency;
@@ -35,6 +36,9 @@ import com.github.mikephil.charting.utils.MPPointD;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
+
+
+import java.util.List;
 
 /**
  * Base-class of LineChart, BarChart, ScatterChart and CandleStickChart.
