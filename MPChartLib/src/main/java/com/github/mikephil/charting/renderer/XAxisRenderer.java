@@ -201,7 +201,8 @@ public class XAxisRenderer extends AxisRenderer {
 
             if (mViewPortHandler.isInBoundsX(x)) {
 
-                String label = mXAxis.getValueFormatter().getAxisLabel(mXAxis.mEntries[i / 2], mXAxis);
+                String label = mXAxis.getValueFormatter().getFormattedValue(mXAxis.mEntries[i / 2], mXAxis);
+                String[] elements = label.split(" ");
 
                 if (mXAxis.isAvoidFirstLastClippingEnabled()) {
 
@@ -221,7 +222,13 @@ public class XAxisRenderer extends AxisRenderer {
                     }
                 }
 
-                drawLabel(c, label, x, pos, anchor, labelRotationAngleDegrees);
+                float y = pos+31; // float y = pos+30; for rn_Charts, 27 for other
+                if(elements.length==2){
+                    drawLabel(c, elements[0], x, pos, anchor, labelRotationAngleDegrees);
+                    drawLabel(c, elements[1], x, y, anchor, labelRotationAngleDegrees);
+                } else if(elements.length==1){
+                    drawLabel(c, elements[0], x, pos, anchor, labelRotationAngleDegrees);
+                }
             }
         }
     }
